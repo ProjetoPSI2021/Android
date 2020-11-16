@@ -18,6 +18,7 @@ import com.example.books.adaptadores.ListaLivroAdaptador;
 
 import java.util.ArrayList;
 
+// git comentario teste
 
 public class ListaLivrosFragment extends Fragment {
 
