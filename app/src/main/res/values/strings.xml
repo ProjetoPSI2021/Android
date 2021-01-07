@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">Books</string>
+    <string name="app_name">EatAway</string>
     <string name="login">Login</string>
-    <string name="Password">Password</string>
-    <string name="Email">Email</string>
-    <string name="menu_lista">Lista Livros</string>
-    <string name="menu_grelha">Grelha Dinamico</string>
+    <string name="Password">Introduza uma Password!!</string>
+    <string name="Email">Introduza um Email!!</string>
+    <string name="menu_lista">Lista Restaurantes</string>
+    <string name="menu_listapratos">Lista Pratos</string>
+    <string name="menu_listapedidos">Meus Pedidos</string>
+    <string name="menu_grelha">Perfil</string>
     <string name="menu_comunicar">Comunicar</string>
     <string name="menu_email">Email</string>
     <string name="nd_Open">Abrir</string>
@@ -12,6 +14,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dados_estatico">Dados Estaticos</string>
-    <string name="facebook_app_id">[APP_ID]</string>
-    <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
+    <string name="no_email">No Email</string>
+    <string name="add_livro">Adicionar Restaurante</string>
+    <string name="remover_livro">Remover Restaurante</string>
+    <string name="rest_add_suc">Restaurante Adicionado com Sucesso</string>
+    <string name="edited_suc">Restaurante modificado com Sucesso</string>
+    <string name="removerLivro">Remover Restaurante</string>
 </resources>

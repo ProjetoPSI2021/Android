@@ -1,113 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vista.LoginActivity"
-    android:orientation="vertical">
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="80dp"
+    tools:context=".Vista.RegisterActivity">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="75dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="372dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@android:color/holo_blue_dark"
-        android:shadowColor="#B58686"
-        android:text="Continue with Facebook"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/or"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="or" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
+        <EditText
+            android:id="@+id/username"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        android:id="@+id/email"
         android:hint="@string/Email"
-        android:inputType="textEmailAddress" />
-
-    <Space
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="wrap_content"/>
+
 
     <EditText
-        android:id="@+id/edtFName"
+        android:id="@+id/password"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="textEmailAddress" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/edtLName"
+        android:id="@+id/c_password"
+        android:hint="Confirm password"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Last Name"
-        android:inputType="textEmailAddress" />
+        android:layout_height="wrap_content"/>
 
-    <Space
+    <ProgressBar
+        android:id="@+id/loading"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
-    <EditText
-        android:id="@+id/edtLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Location"
-        android:inputType="textEmailAddress" />
-
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/Password"
-        android:inputType="textPassword" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="25dp" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="match_parent"
-        android:layout_height="81dp"
-        android:layout_marginLeft="5dp"
-        android:text="I agree to receive email updates from EatAway. By signing up, I confirm that I have read and accept EatAway's Terms and Conditions, Privacy Policy and Cookie Policy."
-        android:textAlignment="textStart" />
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btn_regist"
+        android:text="Register"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClickLogin"
-        android:text="Register" />
-
-
+        android:layout_height="55dp"/>
 </LinearLayout>

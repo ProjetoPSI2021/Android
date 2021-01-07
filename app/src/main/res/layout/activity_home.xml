@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Vista.HomeActivity">
+
+    <TextView
+        android:id="@+id/text"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:layout_margin="80dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Welcome!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+/>
+    <TextView
+        android:layout_below="@+id/text"
+        android:id="@+id/idCliente"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:text="ID:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_below="@+id/text"
+        android:id="@+id/name"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_margin="50dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:text="Name:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_below="@id/name"
+        android:id="@+id/email"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Email:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="200dp"
+        android:id="@+id/btn_logout"
+        android:text="Logout" />
+
+    <Button
+        android:layout_below="@id/email"
+
+        android:layout_marginBottom="30dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="100dp"
+        android:id="@+id/btn_restaurantes"
+        android:text="Restaurantes" />
+</RelativeLayout>

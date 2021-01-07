@@ -2,17 +2,20 @@ package com.example.books.Modelo;
 
 public class Livro {
     // atributos declarados
-    private int id,capa,ano;
-    private String titulo,serie,autor;
+    private int id,ano;
+    private String titulo,serie,autor,capa;
+
+    private static int autoIncrementId = 1;
 
     // Botao direito do rato GENERATE e dp Constructor/Getter e Setter
     public int getId() {
         return id;
     }
-    public int getCapa() {
+    //public int setID(int id) { this.id = id;}
+    public String getCapa() {
         return capa;
     }
-    public void setCapa(int capa) {
+    public void setCapa(String capa) {
         this.capa = capa;
     }
     public int getAno() {
@@ -41,7 +44,7 @@ public class Livro {
     }
 
 
-    public Livro(int id, int capa, int ano, String titulo, String serie, String autor) {
+    public Livro(int id, String capa, int ano, String titulo, String serie, String autor) {
         this.id = id;
         this.capa = capa;
         this.ano = ano;
@@ -51,5 +54,7 @@ public class Livro {
     }
 
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 }
