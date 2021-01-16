@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:backgroundTint="#3FC060">
+    android:backgroundTint="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/imageView"

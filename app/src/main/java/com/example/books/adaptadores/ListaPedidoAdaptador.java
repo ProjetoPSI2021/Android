@@ -66,25 +66,25 @@ public class ListaPedidoAdaptador extends BaseAdapter {
 
             public ViewHolderLista(View convertView){
                 idpedido = convertView.findViewById(R.id.tvIdPedido);
-                idreserva = convertView.findViewById(R.id.tvIdReserva);
+                //idreserva = convertView.findViewById(R.id.tvIdReserva);
                 datapedido = convertView.findViewById(R.id.tvDataPedido);
                 tipopedido = convertView.findViewById(R.id.tvTipoPedido);
-                idclientepedido = convertView.findViewById(R.id.tvIdClientePedido);
+                //idclientepedido = convertView.findViewById(R.id.tvIdClientePedido);
                 precopedido = convertView.findViewById(R.id.tvPrecoPedido);
-                idpratoorder = convertView.findViewById(R.id.tvIdPratoOrder);
-                idrestaurantepedido = convertView.findViewById(R.id.tvIdRestaurantePedido);
+               // idpratoorder = convertView.findViewById(R.id.tvIdPratoOrder);
+                //idrestaurantepedido = convertView.findViewById(R.id.tvIdRestaurantePedido);
                 estadopedido = convertView.findViewById(R.id.tvEstadoPedido);
 
             }
             public void update(Pedido pedido){
-                idpedido.setText(""+pedido.getIdpedido());
-                idreserva.setText(""+pedido.getId_reserva());
+                idpedido.setText("#"+pedido.getIdpedido());
+                //idreserva.setText(""+pedido.getId_reserva());
                 datapedido.setText(pedido.getData());
                 tipopedido.setText(pedido.getTipo());
-                idclientepedido.setText(""+pedido.getId_clientes());
-                precopedido.setText(""+pedido.getPreco());
-                idpratoorder.setText(""+pedido.getIdpratoorder());
-                idrestaurantepedido.setText(""+pedido.getIdrestaurantepedido());
+                //idclientepedido.setText(""+pedido.getId_clientes());
+                precopedido.setText("Total:"+pedido.getPreco()+"€");
+                //idpratoorder.setText("ID Prato"+pedido.getIdpratoorder());
+                //idrestaurantepedido.setText("Restaurante:"+pedido.getIdrestaurantepedido());
                 estadopedido.setText(pedido.getEstadopedido());
             }
 

@@ -3,6 +3,7 @@ package com.example.books;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -57,6 +58,7 @@ public class ListaPratoFragment extends Fragment implements SwipeRefreshLayout.O
                 //intent que vai encaminhar para uma atividade que vamos criar detalheslivroactivity
                 //intent this application content + livro ou id do livro
                 //buscar livro no outro lado
+                Log.d(getTag(),"onItemClick" + tempPrato.toString());
                 Intent intent = new Intent(getContext(), DetalhesRestauranteActivity.class);
                 intent.putExtra(DetalhesRestauranteActivity.DETALHES_LIVRO, tempPrato.getId());
                 startActivityForResult(intent, DetalhesRestauranteActivity.EDITAR);
@@ -95,13 +97,16 @@ public class ListaPratoFragment extends Fragment implements SwipeRefreshLayout.O
         }
     }
 
+    public void addItem(Prato prato){
+        Log.d(getTag(),"onItemClick" + prato.toString());
+    }
+
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_pesquisa, menu);
+        inflater.inflate(R.menu.menu_cart, menu);
 
-        MenuItem itemPesquisa = menu.findItem(R.id.itemPesquisa);
 
-        searchView = (SearchView) itemPesquisa.getActionView();
+        /*searchView = (SearchView) itemPesquisa.getActionView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -123,7 +128,7 @@ public class ListaPratoFragment extends Fragment implements SwipeRefreshLayout.O
 
         });
 
-        super.onCreateOptionsMenu(menu, inflater);
+        super.onCreateOptionsMenu(menu, inflater);*/
     }
 
     @Override

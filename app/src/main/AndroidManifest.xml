@@ -15,14 +15,18 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".Vista.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"
            />
 
         <activity
             android:name=".DetalhesRestauranteActivity"
             android:parentActivityName=".MenuMainActivity" />
         <activity
-            android:name=".DetalhesRestActivity"
+            android:name=".DetalhesPedidoFinalActivity"
             android:parentActivityName=".MenuMainActivity" />
+        <activity
+        android:name=".TrackActivity"
+        android:parentActivityName=".DetalhesPedidoFinalActivity" />
         <activity
             android:name=".MenuMainActivity"
             android:screenOrientation="portrait"

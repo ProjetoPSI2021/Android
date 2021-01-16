@@ -8,20 +8,11 @@
             android:icon="@drawable/ic_menu_estatico"
             android:title="@string/menu_lista" />
         <item
-            android:id="@+id/nav_estatico_pratos"
-            android:icon="@drawable/ic_menu_estatico"
-            android:title="@string/menu_listapratos" />
-        <item
             android:id="@+id/nav_estatico_pedidos"
             android:icon="@drawable/ic_menu_estatico"
             android:title="@string/menu_listapedidos" />
-        <item
-            android:id="@+id/nav_dinamico"
-            android:icon="@drawable/ic_menu_dinamico"
-            android:title="@string/menu_grelha" />
     </group>
-    <group>
-            <menu>
+
                 <item
                     android:id="@+id/verpefil"
                     android:icon="@drawable/ic_menu_email"
@@ -31,5 +22,3 @@
                     android:icon="@drawable/ic_menu_email"
                     android:title="Logout" />
             </menu>
-    </group>
-</menu>

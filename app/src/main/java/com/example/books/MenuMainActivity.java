@@ -38,7 +38,7 @@ public class MenuMainActivity extends AppCompatActivity implements  NavigationVi
         Intent intent = getIntent();
         final int temp = intent.getIntExtra("id",0);
 
-        System.out.println("TESTE SINGLETON VALUE --->" + SingletonGestorRestaurante.LoginIdCliente.getInstance().someValueIWantToKeep);
+        System.out.println("TESTE SINGLETON VALUE --->" + SingletonGestorRestaurante.LoginIdCliente.getInstance().idClienteSingleton);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_main);
@@ -77,7 +77,7 @@ public class MenuMainActivity extends AppCompatActivity implements  NavigationVi
         }
         View hView = navigationView.getHeaderView(0);
         TextView nav_user = hView.findViewById(R.id.tv_Email);
-        nav_user.setText(SingletonGestorRestaurante.LoginEmailCliente.getInstance().emailcliente);
+        nav_user.setText(SingletonGestorRestaurante.LoginIdCliente.getInstance().emailcliente);
     }
 
     private void carregarFragmentoInicial(){
@@ -92,7 +92,6 @@ public class MenuMainActivity extends AppCompatActivity implements  NavigationVi
             navigationView.setCheckedItem(R.id.nav_estatico);
             Fragment fragment = new ListaRestauranteFragment();
             fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();
-            setTitle(getString(R.string.menu_lista));
             System.out.println("MENUMAINTESTE " + tempstring);
 
         }
@@ -111,22 +110,11 @@ public class MenuMainActivity extends AppCompatActivity implements  NavigationVi
                 fragment = new ListaRestauranteFragment();
                 setTitle(item.getTitle());
                 break;
-            case R.id.nav_estatico_pratos:
-                System.out.println("-->Nav Estatico Pratos");
-                fragment = new ListaPratoFragment();
-                setTitle(item.getTitle());
-                break;
             case R.id.nav_estatico_pedidos:
                 System.out.println("-->Nav Estatico Pedidos");
                 fragment = new ListaPedidoFragment();
                 setTitle(item.getTitle());
                 break;
-            case R.id.nav_dinamico:
-                System.out.println("-->Nav Dinamico");
-                fragment = new ListaRestauranteFragment();
-                setTitle(item.getTitle());
-                break;
-                //System.out.println("-->Nav Estatico");
         }
         if(fragment != null)
             fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
@@ -53,17 +54,16 @@ public class ListaRestauranteFragment extends Fragment implements SwipeRefreshLa
         lvlistarestaurantes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-           
+
                 Restaurante tempRestaurante = (Restaurante) parent.getItemAtPosition(position);
                 //QUANDO CLICAR NO RESTAURANTE PARA DETALHES \/
-                System.out.println("--->" + tempRestaurante.getNome());
-                //intent que vai encaminhar para uma atividade que vamos criar detalheslivroactivity
-                //intent this application content + livro ou id do livro
-                //buscar livro no outro lado
-                Intent intent = new Intent(getContext(), DetalhesRestauranteActivity.class);
-                intent.putExtra("idrestaurante", tempRestaurante.getId());
-                intent.putExtra(DetalhesRestauranteActivity.DETALHES_LIVRO, tempRestaurante.getId());
-                startActivityForResult(intent, DetalhesRestauranteActivity.EDITAR);
+
+                SingletonGestorRestaurante.RestauranteIdFood.getInstance().idrestaurantefood = tempRestaurante.getId();
+                Fragment listaprato = new ListaPratoFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.contentFragment, listaprato );
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 

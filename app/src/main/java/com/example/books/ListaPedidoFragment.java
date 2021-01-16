@@ -1,8 +1,10 @@
 package com.example.books;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,16 +33,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 public class ListaPedidoFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, RestauranteListener {
 
-    private ListView lvlistapedidos;
+    public ListView lvlistapedidos;
     private FloatingActionButton fab;
     private ArrayList<Pedido> listaPedidos;
     private SearchView searchView;
     private SwipeRefreshLayout swipeRefreshLayout;
-
+    public Context context;
+    private final String VALUES = "_values_";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -49,6 +53,18 @@ public class ListaPedidoFragment extends Fragment implements SwipeRefreshLayout.
 
         lvlistapedidos = rootView.findViewById(R.id.lvlistapedidos);
         fab = rootView.findViewById(R.id.fab);
+        SingletonGestorRestaurante.iniciarBD(context);
+        if(savedInstanceState == null) {
+            SingletonGestorRestaurante.getInstance(context).lerBD();
+            this.listaPedidos = SingletonGestorRestaurante.getInstance(context).getPedidosBD();
+        }else{
+
+        }
+        if(this.listaPedidos == null) {
+            lvlistapedidos.setAdapter(new ListaPedidoAdaptador(getContext(), listaPedidos));
+        }
+
+
        // lvlistarestaurantes.setAdapter(new ListaRestauranteAdaptador(getContext(), listaRestaurantes));
 
         lvlistapedidos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -65,13 +81,13 @@ public class ListaPedidoFragment extends Fragment implements SwipeRefreshLayout.
             }
         });
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DetalhesRestauranteActivity.class);
                 startActivityForResult(intent, DetalhesRestauranteActivity.ADICIONAR);
             }
-        });
+        });*/
 
         swipeRefreshLayout = rootView.findViewById(R.id.swipe);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -84,49 +100,14 @@ public class ListaPedidoFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (resultCode == Activity.RESULT_OK){
-            switch (requestCode){
-                case DetalhesRestauranteActivity.ADICIONAR:
-                    SingletonGestorRestaurante.getInstance(getContext()).getAllLivrosAPI(getContext());
+                    SingletonGestorRestaurante.getInstance(getContext()).getAllPedidosAPI(getContext());
                     Snackbar.make(getView(), R.string.rest_add_suc,Snackbar.LENGTH_LONG).show();
-                    break;
-                    case DetalhesRestauranteActivity.EDITAR:
-                    //listaRestaurantes = SingletonGestorRestaurante.getInstance(getContext()).getRestaurantesBD();
-                    Snackbar.make(getView(), R.string.edited_suc,Snackbar.LENGTH_LONG).show();
-                    break;
-            }
+
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_pesquisa, menu);
 
-        MenuItem itemPesquisa = menu.findItem(R.id.itemPesquisa);
 
-        searchView = (SearchView) itemPesquisa.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                ArrayList<Restaurante> tempRestaurantes = new ArrayList();
-                for(Restaurante restaurante : SingletonGestorRestaurante.getInstance(getContext()).getRestaurantesBD())
-                    if(restaurante.getNome().toLowerCase().contains(s.toLowerCase())){
-                       tempRestaurantes.add(restaurante);
-                    }
-                lvlistapedidos.setAdapter(new ListaRestauranteAdaptador(getContext(), tempRestaurantes));
-                return true;
-            }
-
-        });
-
-        super.onCreateOptionsMenu(menu, inflater);
-    }
 
     @Override
     public void onRefresh() {

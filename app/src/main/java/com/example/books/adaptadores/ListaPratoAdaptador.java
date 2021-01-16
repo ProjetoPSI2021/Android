@@ -77,7 +77,7 @@ public class ListaPratoAdaptador extends BaseAdapter {
             public void update(Prato prato){
                 nome.setText(prato.getNome());
                 tipo.setText(prato.getTipo());
-                preco.setText(""+ prato.getPreco());
+                preco.setText(prato.getPreco()+"€");
                 ingr.setText(prato.getIngr());
                 Glide.with(context)
                         .load(image_path + prato.getImagem())

@@ -38,7 +38,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        loading = findViewById(R.id.loading);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -55,7 +54,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void Regist(){
-        loading.setVisibility(View.VISIBLE);
         btn_regist.setVisibility(View.GONE);
 
         final String username = this.username.getText().toString().trim();

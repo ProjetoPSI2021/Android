@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 
 import com.example.books.Modelo.Prato;
 import com.example.books.Modelo.Restaurante;
+import com.example.books.Modelo.SingletonGestorRestaurante;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,12 +17,13 @@ import java.util.ArrayList;
 public class PratoJsonParser {
     public static ArrayList<Prato> parserJsonPratos(JSONArray response){
     ArrayList<Prato> listaPratos = new ArrayList<>();
+        int idrestingle= SingletonGestorRestaurante.RestauranteIdFood.getInstance().idrestaurantefood;
 
     try{
         for(int i=0; i < response.length(); i++){
             JSONObject prato = (JSONObject) response.get(i);
             int r_id = prato.getInt("r_id");
-            if(r_id==2) {
+            if(r_id==idrestingle) {
                 int idPratos = prato.getInt("idPratos");
                 String nome = prato.getString("nome");
                 String imagem = prato.getString("imagem");

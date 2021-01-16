@@ -3,7 +3,9 @@ package com.example.books.Vista;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,20 +36,35 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
     private TextView link_regist;
     private ProgressBar loading;
+
     private static String URL_LOGIN ="http://192.168.1.82/advanced1/android_register_login/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        loading = findViewById(R.id.loading);
         email = findViewById(R.id.inputEmail);
         password = findViewById(R.id.inputPassword);
         btn_login = findViewById(R.id.btnLogin);
         link_regist = findViewById(R.id.gotoRegister);
         Bundle bundle = new Bundle();
         bundle.putString("edttext", "");
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences login = getSharedPreferences("data",MODE_PRIVATE);
 
+
+        int number = login.getInt("isLogged", 0);
+        /*SharedPreferences.Editor editor = sharedPref.edit();
+        editor.clear();
+        editor.commit(); -> Para apagar os dados da sharedprefences login e fazer login novamente*/
+
+        if(number == 0) {
+
+        } else {
+
+            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+            startActivity(intent);
+        }
        btn_login.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -97,19 +114,25 @@ public class LoginActivity extends AppCompatActivity {
                                     intent.putExtra("username",username);
                                     intent.putExtra("email", email);
                                     intent.putExtra("id", id);
+
                                     System.out.println("LOGIN --->" + id);
-                                    SingletonGestorRestaurante.LoginIdCliente.getInstance().someValueIWantToKeep = id;
-                                    SingletonGestorRestaurante.LoginEmailCliente.getInstance().emailcliente = email;
-
+                                    SingletonGestorRestaurante.LoginIdCliente.getInstance().idClienteSingleton = id;
+                                    SingletonGestorRestaurante.LoginIdCliente.getInstance().emailcliente = email;
+                                    SharedPreferences sharedPref = getSharedPreferences("data",MODE_PRIVATE);
+                                    SharedPreferences login = getSharedPreferences("data",MODE_PRIVATE);
+                                    SharedPreferences.Editor e = sharedPref.edit();
+                                    e.putString("emailshared", email);
+                                    e.putInt("idclishared", id);
+                                    e.putString("usernameshared", username);
+                                    e.commit();
+                                    SharedPreferences.Editor prefLoginEditor = login.edit();
+                                    prefLoginEditor.putInt("isLogged",1);
+                                    prefLoginEditor.commit();
                                     startActivity(intent);
-
-
-
                                 }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loading.setVisibility(View.GONE);
                             btn_login.setVisibility(View.VISIBLE);
                             Toast.makeText(LoginActivity.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
                         }

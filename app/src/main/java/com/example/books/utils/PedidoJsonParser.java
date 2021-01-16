@@ -20,8 +20,8 @@ public class PedidoJsonParser {
     public static ArrayList<Pedido> parserJsonPedidos(JSONArray response){
     ArrayList<Pedido> listaPedidos = new ArrayList<>();
     try{
-        System.out.println("TESTE SINGLETON VALUE --->" + SingletonGestorRestaurante.LoginIdCliente.getInstance().someValueIWantToKeep);
-        int idclientesingle= SingletonGestorRestaurante.LoginIdCliente.getInstance().someValueIWantToKeep;
+        System.out.println("TESTE SINGLETON VALUE --->" + SingletonGestorRestaurante.LoginIdCliente.getInstance().idClienteSingleton);
+        int idclientesingle= SingletonGestorRestaurante.LoginIdCliente.getInstance().idClienteSingleton;
         for(int i=0; i < response.length(); i++){
             JSONObject pedido = (JSONObject) response.get(i);
             int id_clientes = pedido.getInt("id_clientes");
@@ -46,6 +46,41 @@ public class PedidoJsonParser {
 
     return listaPedidos;
 }
+
+    public static ArrayList<Pedido> parserJsonPedidoTracker(JSONArray response){
+        ArrayList<Pedido> listaPedidos = new ArrayList<>();
+        try{
+            System.out.println("TESTE SINGLETON VALUE --->" + SingletonGestorRestaurante.LoginIdCliente.getInstance().idClienteSingleton);
+            int idclientesingle= SingletonGestorRestaurante.LoginIdCliente.getInstance().idClienteSingleton;
+            String estadopedidosingle = SingletonGestorRestaurante.LoginIdCliente.getInstance().estadopedido;
+
+            for(int i=0; i < response.length(); i++){
+                JSONObject pedido = (JSONObject) response.get(i);
+                int id_clientes = pedido.getInt("id_clientes");
+                String estadopedido = pedido.getString("estadopedido");
+                if(id_clientes == idclientesingle){
+                    int idpedido = pedido.getInt("idpedido");
+                    int id_reserva = pedido.getInt("id_reserva");
+                    String data = pedido.getString("data");
+                    String tipo = pedido.getString("tipo");
+                    int preco = pedido.getInt("preco");
+                    int idpratoorder = pedido.getInt("idpratoorder");
+                    int idrestaurantepedido = pedido.getInt("idrestaurantepedido");
+
+
+                SingletonGestorRestaurante.LoginIdCliente.getInstance().estadopedido = estadopedido;
+                    System.out.println("TESTE ESTADO PEDIDO--->"+estadopedido);
+                    Pedido auxPedido = new Pedido(idpedido,id_reserva,data,tipo,id_clientes,preco,idpratoorder,idrestaurantepedido,estadopedido);
+                    listaPedidos.add(auxPedido);}
+            }
+
+
+        }catch(JSONException e){
+            e.printStackTrace();
+        }
+
+        return listaPedidos;
+    }
 
 public static Pedido parserJsonPedido(String response){
         Pedido auxPedido = null;

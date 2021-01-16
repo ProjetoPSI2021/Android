@@ -1,129 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Vista.EstaticoFragment">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginRight="8dp"
+    android:background="@drawable/recycler_bg2">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/bannerprato"
+        android:layout_width="86dp"
+        android:layout_height="95dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/popular1" />
+
+    <TextView
+        android:id="@+id/tvNomePrato"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/bannerprato"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvIngredientesPrato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tvNomePrato"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomePrato" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/tvIngredientesPrato"
+        app:layout_constraintTop_toBottomOf="@+id/tvIngredientesPrato"
+        app:srcCompat="@drawable/ic_mdi_star_rate" />
 
-                <ImageView
-                    android:id="@+id/bannerprato"
-                    android:layout_width="300dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:src="@android:drawable/ic_menu_more" />
-            </LinearLayout>
+    <TextView
+        android:id="@+id/all_menu_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="3.9"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/tvstringnomeprato"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="nome:" />
-                <TextView
-                    android:id="@+id/tvNomePrato"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="5dp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+    <TextView
+        android:id="@+id/all_menu_deliverytime"
+        android:layout_width="40dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/time_bg"
+        android:gravity="center"
+        android:text="45 mins"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/all_menu_rating"
+        app:layout_constraintStart_toEndOf="@+id/all_menu_rating"
+        app:layout_constraintTop_toTopOf="@+id/all_menu_rating" />
 
-                <TextView
-                    android:id="@+id/tvstringimagem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="imagem:" />
-                <TextView
-                    android:id="@+id/tvImagemPrato"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_weight="1" />
+    <TextView
+        android:id="@+id/tvTipoPrato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Free Delivery"
+        app:layout_constraintBottom_toBottomOf="@+id/all_menu_deliverytime"
+        app:layout_constraintStart_toEndOf="@+id/all_menu_deliverytime"
+        app:layout_constraintTop_toTopOf="@+id/all_menu_deliverytime" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
-
-                <TextView
-                    android:id="@+id/tvstringpreco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="preco:" />
-                <TextView
-                    android:id="@+id/tvPrecoPrato"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
-
-                <TextView
-                    android:id="@+id/tvstringIngredientes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mesas:" />
-                <TextView
-                    android:id="@+id/tvIngredientesPrato"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
-
-                <TextView
-                    android:id="@+id/tvstringtipo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Prato:" />
-                <TextView
-                    android:id="@+id/tvTipoPrato"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-    </LinearLayout>
-
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvPrecoPrato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="166"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
