@@ -9,7 +9,9 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:backgroundTint="@color/colorPrimary">
+    android:backgroundTint="@color/colorPrimary"
+ >
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -25,6 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:paddingTop="2dp"
-        android:text="da@gmail.com"
+        android:text=""
         android:textColor="@android:color/white" />
 </LinearLayout>

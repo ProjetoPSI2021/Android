@@ -8,7 +8,7 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="4dp"
     android:layout_marginRight="8dp"
-    android:background="@drawable/recycler_bg2">
+    android:background="@drawable/recycler_bg2p">
 
 
     <ImageView
@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/popular1" />
+         />
 
     <TextView
         android:id="@+id/tvNomePrato"
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:text="3.9"
+        android:text="4.8"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Free Delivery"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/all_menu_deliverytime"
         app:layout_constraintStart_toEndOf="@+id/all_menu_deliverytime"
         app:layout_constraintTop_toTopOf="@+id/all_menu_deliverytime" />
@@ -90,7 +90,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="166"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

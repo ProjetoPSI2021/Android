@@ -5,20 +5,35 @@
     <group android:checkableBehavior="single" >
         <item
             android:id="@+id/nav_estatico"
-            android:icon="@drawable/ic_menu_estatico"
+            android:icon="@drawable/restfood_icon"
             android:title="@string/menu_lista" />
         <item
             android:id="@+id/nav_estatico_pedidos"
-            android:icon="@drawable/ic_menu_estatico"
+            android:icon="@drawable/takeawayorder"
             android:title="@string/menu_listapedidos" />
     </group>
 
+    <item android:title="Menu">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
                 <item
-                    android:id="@+id/verpefil"
-                    android:icon="@drawable/ic_menu_email"
-                    android:title="Ver Perfil" />
+                    android:id="@+id/nav_dash"
+                    android:icon="@drawable/ic_menu_estatico"
+                    android:title="Dashboard" />
+
                 <item
-                    android:id="@+id/Logout"
-                    android:icon="@drawable/ic_menu_email"
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/editprofile_icon"
+                    android:title="Editar Perfil" />
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/logout_icon"
                     android:title="Logout" />
+            </group>
+        </menu>
+    </item>
             </menu>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrackActivity">
+    tools:context=".Vista.TrackActivity">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"
@@ -30,7 +30,7 @@
             android:text="Estado - Pedido"
             android:textColor="@color/colorWhite"
             android:textSize="15sp" />
-        <TextView
+        <Button
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,9 +39,12 @@
             android:background="@drawable/text_bg"
             android:paddingEnd="10dp"
             android:paddingStart="10dp"
-            android:text="Cancel"
+            android:id="@+id/keep"
+            android:text="CONTINUAR"
             android:textColor="@color/colorText"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:visibility="invisible"
+            />
 
     </LinearLayout>
 
@@ -257,7 +260,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:text="Order Processed"
+        android:text="Pedido Processado"
         android:textColor="@color/colorText"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -269,7 +272,7 @@
         android:id="@+id/processed_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="We are preparing your order"
+        android:text="Estamos a preparar o seu pedido!"
         app:layout_constraintEnd_toEndOf="@id/textorderprocessed"
         app:layout_constraintStart_toStartOf="@+id/textorderprocessed"
         app:layout_constraintTop_toBottomOf="@+id/textorderprocessed" />
@@ -323,7 +326,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:text="Ready To order pickup"
+        android:text="Pronto para ser recolhido"
         android:textColor="@color/colorText"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -336,7 +339,7 @@
         android:id="@+id/pickup_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Your Order ready to pickup"
+        android:text="O seu pedido está pronto!"
         app:layout_constraintEnd_toEndOf="@id/textorderpickup"
         app:layout_constraintStart_toStartOf="@+id/textorderpickup"
         app:layout_constraintTop_toBottomOf="@+id/textorderpickup" />

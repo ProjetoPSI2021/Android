@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.books">
+    package="com.example.eataway">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,24 +14,31 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Vista.HomeActivity"
+            android:name="com.example.eataway.Vista.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"
            />
 
         <activity
-            android:name=".DetalhesRestauranteActivity"
-            android:parentActivityName=".MenuMainActivity" />
+            android:name="com.example.eataway.Vista.EditActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
         <activity
-            android:name=".DetalhesPedidoFinalActivity"
-            android:parentActivityName=".MenuMainActivity" />
+            android:name="com.example.eataway.Vista.DetalhesPratoActivity"
+            android:parentActivityName="com.example.eataway.Vista.MenuMainActivity" />
         <activity
-        android:name=".TrackActivity"
-        android:parentActivityName=".DetalhesPedidoFinalActivity" />
+            android:name="com.example.eataway.Vista.DetalhesPedidoFinalActivity"
+            android:parentActivityName="com.example.eataway.Vista.MenuMainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".MenuMainActivity"
+        android:name="com.example.eataway.Vista.TrackActivity"
+        android:parentActivityName="com.example.eataway.Vista.DetalhesPedidoFinalActivity"
+            />
+        <activity
+            android:name="com.example.eataway.Vista.MenuMainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Vista.LoginActivity"
+        <activity android:name="com.example.eataway.Vista.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Vista.RegisterActivity"
+        <activity android:name="com.example.eataway.Vista.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" >  <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
